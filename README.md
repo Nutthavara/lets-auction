@@ -1,24 +1,42 @@
-# README
+# lets-auction
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> TODO: one-line description. See [`ai/context/project.md`](ai/context/project.md).
 
-Things you may want to cover:
+Ruby on Rails app, deployed to Railway from `main`. Continues the earlier `we-auction` repo.
 
-* Ruby version
+## Status
 
-* System dependencies
+Early. Scaffolded 2026-11-11; scope is not written down yet — see
+[`docs/decision/`](docs/decision/README.md).
 
-* Configuration
+## Run it
 
-* Database creation
+Ruby version is in `.ruby-version`. On Windows use WSL, with the checkout in the WSL filesystem.
 
-* Database initialization
+```bash
+bin/setup      # installs gems, prepares the database, starts the server
+bin/dev        # start the server later
+bin/rails db:test:prepare test   # tests (what CI runs)
+bin/rubocop && bin/brakeman      # lint and security scan
+```
 
-* How to run the test suite
+Open http://localhost:3000. **Merging to `main` deploys to production on Railway.**
 
-* Services (job queues, cache servers, search engines, etc.)
+## For collaborators
 
-* Deployment instructions
+1. Read [`CONTRIBUTING.md`](CONTRIBUTING.md).
+2. Read the decision log: [`docs/decision/README.md`](docs/decision/README.md).
+3. Using an AI agent? It should start at [`AGENTS.md`](AGENTS.md). The shared skills,
+   knowledge and context live in [`ai/`](ai/README.md) and `.claude/skills/`.
 
-* test 
+## Repo map
+
+```
+AGENTS.md          entry point for all AI agents
+CLAUDE.md          Claude Code (imports AGENTS.md)
+ai/                shared context, knowledge, playbooks
+docs/decision/     decision log (what + why)
+.claude/skills/    reusable agent skills
+.github/           CI, PR/issue templates, Dependabot, Copilot pointer
+app/ config/ db/ test/   the Rails app
+```

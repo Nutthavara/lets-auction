@@ -33,3 +33,10 @@
 # Ignore key files for decrypting credentials and more.
 /config/*.key
 
+
+# Personal agent overrides and scratch state
+CLAUDE.local.md
+.claude/settings.local.json
+.claude/worktrees/
+.superpowers/
+.scratch/
